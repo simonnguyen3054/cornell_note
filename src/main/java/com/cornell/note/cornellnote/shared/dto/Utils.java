@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import java.security.SecureRandom;
 import java.util.Random;
 
-@Component
+@Component //Spring container will register this class as a Spring Bean
 public class Utils {
     private final Random RANDOM = new SecureRandom();
     private final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -14,6 +14,7 @@ public class Utils {
         return generateRandomString(length);
     }
 
+    //This method generates a random string of characters for user_id
     private String generateRandomString(int length) {
         StringBuilder returnValue = new StringBuilder(length);
 

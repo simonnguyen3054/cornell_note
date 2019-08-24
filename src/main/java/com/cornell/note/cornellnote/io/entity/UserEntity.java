@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Data
-@Entity(name = "users")
+@Entity(name = "users") //JPA annoation to specify the class is an Entity => this is where we create the schema
 public class UserEntity implements Serializable {
 
     private static final long serialVersionUID = 7410045785435506848L;

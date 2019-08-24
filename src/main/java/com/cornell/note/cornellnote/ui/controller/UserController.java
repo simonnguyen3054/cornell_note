@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("users")
+@RequestMapping("users") //mapping web requests onto methods in request-handling. ex: /users
 public class UserController {
 
     @Autowired
@@ -34,10 +34,10 @@ public class UserController {
         UserDto userDto = new UserDto();
         BeanUtils.copyProperties(userDetails, userDto);
 
-        UserDto createdUser = userService.createUser(userDto);
+        UserDto createdUser = userService.createUser(userDto); //controller will call the method from UserService to create the user
         BeanUtils.copyProperties(createdUser, returnValue);
 
-        return returnValue;
+        return returnValue; //we return only the fields from UserRest model
     }
 
     @PutMapping
