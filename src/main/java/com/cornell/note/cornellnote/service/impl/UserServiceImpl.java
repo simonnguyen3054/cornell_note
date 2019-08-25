@@ -1,7 +1,7 @@
 //business logic goes here ex: create, read, update
 package com.cornell.note.cornellnote.service.impl;
 
-import com.cornell.note.cornellnote.UserRepository;
+import com.cornell.note.cornellnote.io.repositories.UserRepository;
 import com.cornell.note.cornellnote.io.entity.UserEntity;
 import com.cornell.note.cornellnote.service.UserService;
 import com.cornell.note.cornellnote.shared.dto.UserDto;
@@ -46,6 +46,17 @@ public class UserServiceImpl implements UserService {
         UserDto returnValue = new UserDto();
         BeanUtils.copyProperties(storedUserDetails, returnValue);
 
+        return returnValue;
+    }
+
+    @Override
+    public UserDto getUser(String email) {
+        UserEntity userEntity = userRepository.findByEmail(email);
+
+        if(userEntity == null) throw new UsernameNotFoundException(email);
+
+        UserDto returnValue = new UserDto();
+        BeanUtils.copyProperties(userEntity, returnValue);
         return returnValue;
     }
 

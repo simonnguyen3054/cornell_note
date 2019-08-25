@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService extends UserDetailsService {
     UserDto createUser(UserDto user); //this method creates a user and return the UserDTO
+    UserDto getUser(String email);
 }
 
 //Note about Service

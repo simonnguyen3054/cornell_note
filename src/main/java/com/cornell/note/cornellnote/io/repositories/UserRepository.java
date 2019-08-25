@@ -1,4 +1,4 @@
-package com.cornell.note.cornellnote;
+package com.cornell.note.cornellnote.io.repositories;
 
 import com.cornell.note.cornellnote.io.entity.UserEntity;
 import org.springframework.data.repository.CrudRepository;
